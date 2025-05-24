@@ -38,9 +38,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxss1 \
     # For fonts, often helpful
     fonts-liberation \
-    # Other useful tools (optional, but good for debugging inside the container)
-    # curl \
-    # procps \
     # Clean up apt cache
     && rm -rf /var/lib/apt/lists/*
 
@@ -69,9 +66,8 @@ EXPOSE 8000
 # If you hardcode a port in your CMD line (e.g., 5000), expose that.
 
 # 9. Define the Command to Run the Application
-# The PORT environment variable will be set by most cloud container platforms.
-# Gunicorn is a common choice for production.
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--workers", "2", "--threads", "4", "--worker-class", "gthread", "app:app"]
+# MODIFIED CMD TO USE SHELL FORM FOR $PORT EXPANSION
+CMD gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --worker-class gthread app:app
 # Explanation of Gunicorn args:
 #   --bind 0.0.0.0:$PORT : Listen on all interfaces, on the port specified by $PORT (or 8000 if not set)
 #   --workers 2           : Number of worker processes. A common recommendation is (2 * number_of_cores) + 1. Start with 2-4.
@@ -79,5 +75,5 @@ CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--workers", "2", "--threads", "4", 
 #   --worker-class gthread: Use threaded workers for I/O-bound tasks (like web requests).
 #   app:app               : Your Flask application (app.py, Flask instance named app).
 
-# Alternative CMD for Waitress (simpler, pure Python):
-# CMD ["waitress-serve", "--host=0.0.0.0", "--port=$PORT", "app:app"]
+# Alternative CMD for Waitress (simpler, pure Python) using shell form:
+# CMD waitress-serve --host=0.0.0.0 --port=$PORT app:app
