@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+instance/
+uploads/ # If you have a local uploads folder
+*.sqlite3 # If you were using SQLite locally for testing
+.DS_Store
+# Add any other local config files or large data files

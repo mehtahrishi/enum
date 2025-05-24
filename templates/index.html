@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
+</head>
+<body>
+    <header class="site-header">
+        <h1>
+            <img src="{{ url_for('static', filename='img/favicon.png') }}" alt="Enum Logo" class="header-logo"> Enum
+        </h1>
+    </header>
+
+    <main class="main-container">
+        <section class="top-cards-container">
+            <div class="card input-card">
+                <h2>Get Started</h2>
+                <p>Enter a website URL to extract core insights and preview the site.</p>
+                <input type="url" id="urlInput" placeholder="e.g., https://example.com">
+                <button id="analyzeButton">Analyze Website</button>
+                <button id="viewHistoryButton" class="secondary-button">View History</button>
+            </div>
+            <div class="card info-card">
+                <h2>Welcome to Enum!</h2>
+                <p>
+                    Tired of manually digging through websites? Enum is here to help!
+                    Powered by advanced AI, our tool allows you to quickly understand what a company is,
+                    what it does, and its industry.
+                </p>
+                <p>
+                    Simply enter a URL, and our AI will get to work, providing you with a summary,
+                    a live preview, and even read the insights aloud.
+                </p>
+            </div>
+        </section>
+
+        <div id="loader" class="loader hidden"></div>
+
+        <section id="resultsDisplayArea" class="results-display-area hidden">
+            <div class="results-container">
+                <div class="analysis-section">
+                    <div class="analysis-header"> <!-- Wrapper for h2 and button -->
+                        <h2>Analysis Results</h2>
+                        <button id="speakStopButton" class="speak-stop-button" title="Speak Results">🔊 Speak</button>
+                    </div>
+                    <div class="analysis-item">
+                        <strong>Company Name:</strong>
+                        <p id="companyName">-</p>
+                    </div>
+                    <div class="analysis-item">
+                        <strong>Core Business Description:</strong>
+                        <p id="businessDescription">-</p>
+                    </div>
+                    <div class="analysis-item">
+                        <strong>Industry Classification:</strong>
+                        <p id="industryClassification">-</p>
+                    </div>
+                </div>
+
+                <div class="preview-section">
+                    <h2>Live Website Preview</h2>
+                    <iframe id="websitePreview" src="about:blank" title="Website Preview"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- ... (Key Benefits and Footer remain the same) ... -->
+        <section class="key-benefits">
+            <h2>Key Benefits</h2>
+            <div class="benefits-container">
+                <div class="benefit-item">
+                    <span class="benefit-emoji-icon">⏱️</span>
+                    <h3>Save Time</h3>
+                    <p>Quickly get the gist of a website without extensive reading.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-emoji-icon">💡</span>
+                    <h3>Understand Faster</h3>
+                    <p>AI-powered summaries make complex information digestible.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-emoji-icon">🔊</span>
+                    <h3>Effortless Consumption</h3>
+                    <p>Have the key insights read aloud to you for convenience.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-main">
+        <p>© <span id="currentYear"></span> Enum. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

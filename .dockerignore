@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.git/
+.gitignore
+.dockerignore
+Dockerfile
+Procfile
+README.md
+# Add any other files/folders not needed in the image
+instance/
+uploads/

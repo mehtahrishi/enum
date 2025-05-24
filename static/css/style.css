@@ -1,0 +1,476 @@
+/* static/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-bg: #121220; /* Darker base */
+    --secondary-bg-gradient-start: #1a1a2e; /* Deep blue/purple for gradient */
+    --secondary-bg-gradient-end: #16213e;
+    --card-bg: rgba(40, 40, 70, 0.5); /* Glassmorphic card bg with more transparency */
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --accent-color: #00aaff; /* Bright blue for accents */
+    --accent-glow: rgba(0, 170, 255, 0.25);
+    --button-bg:  #00aaff; /* Primary button */
+    --button-hover-bg: #FFC0CB;
+    --secondary-button-bg: #6c757d; /* Secondary button */
+    --secondary-button-hover-bg: #5a6268;
+    --input-bg: rgba(255, 255, 255, 0.08);
+    --footer-bg: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('https://media.istockphoto.com/id/1405041098/vector/simple-blue-red-white-gradient-background-in-color-of-american-flag-blurred-usa-flag.jpg?s=612x612&w=0&k=20&c=UFoq9FTpRbGGabJ8enNFnQMwiji6GJpal23GNOoTDSA='); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.site-header {
+    width: 100%;
+    padding: 2px 0; /* Adjusted padding since nav is gone */
+    margin-bottom: 30px;
+    text-align: center;
+    border-top: 1px solid black; /* Added border for separation */
+    border-bottom: 1px solid black; /* Added border for separation */
+    background-color: var(--footer-bg);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+.site-header h1 {
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    text-shadow: 0 0 10px var(--accent-glow);
+    margin-bottom: 0;
+    display: flex; /* Added to align image and text */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
+}
+.header-logo {
+    width: 45px; /* Adjust size as needed */
+    height: 45px; /* Adjust size as needed */
+    margin-right: 10px; /* Space between logo and text */
+    vertical-align: middle; /* Helps with alignment if not using flex */
+}
+
+/* Navigation styles removed as per request */
+
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-grow: 1; /* Allows footer to stick to bottom */
+}
+
+.top-cards-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid black; /* Added border for visibility */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* For Safari */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.input-card input[type="url"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.input-card input[type="url"]::placeholder {
+    color: rgba(224, 224, 224, 0.7);
+}
+
+.input-card button { /* General style for buttons in this card */
+    padding: 12px 20px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px; /* Space between buttons */
+}
+.input-card button:hover {
+    color: white
+}
+.input-card button:last-child {
+    margin-bottom: 0; /* No margin for the last button in the card */
+}
+
+.input-card button#analyzeButton { /* Specific primary button styling */
+    background-color: var(--button-bg);
+}
+.input-card button#analyzeButton:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.input-card button.secondary-button { /* New secondary button style */
+    background-color: var(--secondary-button-bg);
+}
+.input-card button.secondary-button:hover {
+    background-color: var(--secondary-button-hover-bg);
+}
+
+.input-card button:disabled { /* Applies to both buttons when disabled */
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Styles for history page elements, if they use generic .input-section */
+.input-section {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 30px;
+}
+.input-section button {
+    padding: 12px 20px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+.input-section button:hover {
+    background-color: var(--button-hover-bg);
+}
+.input-section button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+
+.results-display-area {
+    margin-bottom: 30px;
+}
+.results-display-area.hidden {
+    display: none !important; /* Ensure it's hidden */
+}
+
+.results-container {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+}
+
+.analysis-section, .preview-section {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-height: 350px;
+}
+
+.analysis-section h2, .preview-section h2 {
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 10px;
+}
+
+.analysis-item {
+    margin-bottom: 15px;
+}
+
+.analysis-item strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.analysis-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+#websitePreview {
+    width: 100%;
+    height: calc(100% - 50px); /* Adjust based on h2 height and padding */
+    min-height: 300px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff; /* Fallback if iframe content doesn't load */
+}
+
+.key-benefits {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.key-benefits h2 {
+    font-size: 2rem;
+    color: var(--heading-color);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+.key-benefits h2::before {
+    content: '✨';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    background: var(--card-bg);
+    border: 1px solid black; /* Added border for visibility */
+    border-radius: 10px;
+    padding: 25px;
+    width: calc(33.333% - 20px); /* For 3 items, adjust if 2 */
+    min-width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefit-item .benefit-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    filter: invert(80%) sepia(100%) saturate(500%) hue-rotate(180deg);
+}
+.benefit-item .benefit-emoji-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.benefit-item h3 {
+    font-size: 1.4rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.site-footer-main {
+    width: 100vw; /* Full viewport width */
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Pushes to bottom when content is short */
+    border: 1px solid black;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.analysis-section h2, .preview-section h2 { /* For history page consistency */
+    color: var(--heading-color);
+    /* margin-bottom: 20px; Now handled by .analysis-header or direct margin */
+    /* border-bottom: 1px solid var(--card-border); */ /* Moved to .analysis-header */
+    /* padding-bottom: 10px; */
+    flex-grow: 1; /* Allow h2 to take available space */
+}
+
+.analysis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 10px;
+}
+
+.speak-stop-button {
+    background-color: var(--accent-color); /* Or another distinct color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    min-width: 90px; /* To prevent layout shift when text changes */
+    text-align: center;
+}
+
+.speak-stop-button:hover {
+    background-color: #0088cc; /* Darker accent */
+}
+
+.speak-stop-button:disabled {
+    background-color: #555;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Loader styles */
+
+.loader {
+    border: 5px solid #f3f3f330;
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 30px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* History Page Specifics */
+.history-section {
+    background: var(--card-bg);
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-top: 0; /* Aligned with main content flow */
+    margin-bottom: 30px;
+}
+
+/* Shared h2 style for history and analysis sections */
+.history-section h2 {
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 10px;
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+}
+
+#historyList li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid black; /* Added border for visibility */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#historyList li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#historyList li .url {
+    font-weight: 600;
+    color: var(--accent-color);
+    word-break: break-all;
+    display: block;
+    margin-bottom: 5px;
+}
+#historyList li .company {
+    font-size: 0.9em;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+#historyList li .timestamp {
+    font-size: 0.8em;
+    color: #aaa;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .top-cards-container {
+        flex-direction: column;
+    }
+    .results-container {
+        flex-direction: column;
+    }
+    .analysis-section, .preview-section {
+        min-height: 300px;
+    }
+    #websitePreview {
+        min-height: 300px;
+    }
+    .benefit-item {
+        width: calc(50% - 15px); /* Two items per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header h1 {
+        font-size: 2.2rem; /* Adjusted title size */
+    }
+    /* Removed .site-header nav a responsive styles as nav is gone */
+    .card, .analysis-section, .preview-section, .history-section {
+        padding: 20px;
+    }
+    .card h2 {
+        font-size: 1.5rem;
+    }
+    .benefit-item {
+        width: 100%; /* One item per row */
+    }
+}

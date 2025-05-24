@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis History - Enum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Favicon Link -->
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
+</head>
+<body>
+    <header class="site-header">
+        <h1>
+            <img src="{{ url_for('static', filename='img/favicon.png') }}" alt="Enum Logo" class="header-logo"> Enum
+        </h1>
+        <p style="margin-top:10px;"><a href="{{ url_for('index') }}" style="color: var(--accent-color); text-decoration: none;">← Back to Analyze New</a></p>
+    </header>
+
+    <main class="main-container">
+        <section class="history-section">
+            <h2>Analysis History</h2>
+            <div id="loader" class="loader hidden"></div>
+            <ul id="historyList">
+                <!-- History items will be loaded here by JavaScript -->
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer-main">
+        <p>© <span id="currentYear"></span> Enum. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
