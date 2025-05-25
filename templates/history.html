@@ -6,7 +6,9 @@
     <title>Analysis History - Enum</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- Favicon Link -->
-    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/png">
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
     <header class="site-header">
@@ -27,7 +29,14 @@
     </main>
 
     <footer class="site-footer-main">
-        <p>© <span id="currentYear"></span> Enum. All rights reserved.</p>
+        <p>© <span id="currentYear"></span> Enum. Powered by Hrishi Mehta, Gemini AI & Google LLM Models🗿.</p>
+        <p> All rights reserved.</p>
+        <p><small>Remember some websites might refuse web scrapping according to their organization's policies.</small></p>
+        <div class="social-links">
+                <a href="https://github.com/mehtahrishi"><i class="fab fa-github"></i></a>
+                <a href="https://portfolio-theta-lemon-33.vercel.app/"><i class="fas fa-user-tie"></i></a>
+                <a href="https://www.linkedin.com/in/hrishi-mehta-889732256/"><i class="fab fa-linkedin"></i></a>
+            </div>
     </footer>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();

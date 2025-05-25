@@ -474,3 +474,16 @@ body {
         width: 100%; /* One item per row */
     }
 }
+/* --- Footer Styles --- */
+.social-links a {
+  color: var(--light-text);
+  margin-left: 15px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}

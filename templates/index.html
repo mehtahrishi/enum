@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enum</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
+    <!-- Favicon Link -->
+    <!-- For .ico files, use: -->
+   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <!-- For .svg files, use: -->
+    <!-- <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml"> -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
     <header class="site-header">
@@ -42,10 +48,7 @@
         <section id="resultsDisplayArea" class="results-display-area hidden">
             <div class="results-container">
                 <div class="analysis-section">
-                    <div class="analysis-header"> <!-- Wrapper for h2 and button -->
-                        <h2>Analysis Results</h2>
-                        <button id="speakStopButton" class="speak-stop-button" title="Speak Results">🔊 Speak</button>
-                    </div>
+                    <h2>Analysis Results</h2>
                     <div class="analysis-item">
                         <strong>Company Name:</strong>
                         <p id="companyName">-</p>
@@ -67,7 +70,6 @@
             </div>
         </section>
 
-        <!-- ... (Key Benefits and Footer remain the same) ... -->
         <section class="key-benefits">
             <h2>Key Benefits</h2>
             <div class="benefits-container">
@@ -90,8 +92,15 @@
         </section>
     </main>
 
-    <footer class="site-footer-main">
-        <p>© <span id="currentYear"></span> Enum. All rights reserved.</p>
+<footer class="site-footer-main">
+        <p>© <span id="currentYear"></span> Enum. Powered by Hrishi Mehta, Gemini AI & Google LLM Models🗿.</p>
+        <p> All rights reserved.</p>
+        <p><small>Remember some websites might refuse web scrapping according to their organization's policies.</small></p>
+        <div class="social-links">
+                <a href="https://github.com/mehtahrishi"><i class="fab fa-github"></i></a>
+                <a href="https://portfolio-theta-lemon-33.vercel.app/"><i class="fas fa-user-tie"></i></a>
+                <a href="https://www.linkedin.com/in/hrishi-mehta-889732256/"><i class="fab fa-linkedin"></i></a>
+            </div>
     </footer>
 
     <script>
