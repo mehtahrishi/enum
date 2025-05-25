@@ -1,5 +1,6 @@
-`Screenshot 2025-05-25 090418.png`  
 # Enum - Intelligent Website Analysis Tool
+
+![Enum Screenshot](./Screenshot%202025-05-25%20090418.png)
 
 ---
 
@@ -11,15 +12,17 @@
 
 * **Modern Glassmorphic User Interface:** A visually appealing and intuitive design that enhances user experience.
 * **Intelligent Website Analysis:**
-    * **Company Identification:** Determines the company or organization name associated with the URL.
-    * **Core Business Description:** Summarizes what the company does and its primary services/products.
-    * **Industry Classification:** Identifies the industry the company operates in.
-* **Automatic Text-to-Speech (Read Aloud):** Extracted information is automatically read out using the browser's built-in Web Speech API, making consumption effortless.
-* **Live Website Preview:** Displays an interactive `iframe` of the analyzed website, allowing you to visually browse the site alongside the generated insights.
-* **Analysis History:** Stores a record of all previously analyzed URLs, including the generated insights (company name, description, industry).
-    * **Revisit Content:** Easily click from the history page to view the detailed analysis of any past entry on the main page.
-* **Python-Powered Backend:** Robust and scalable, handling all web scraping, AI interactions, and database operations.
-* **Dynamic Content Scraping:** Employs **Playwright** to handle JavaScript-rendered websites, ensuring comprehensive data extraction.
+
+  * **Company Identification:** Determines the company or organization name associated with the URL.
+  * **Core Business Description:** Summarizes what the company does and its primary services/products.
+  * **Industry Classification:** Identifies the industry the company operates in.
+* **Automatic Text-to-Speech (Read Aloud):** Extracted information is automatically read out using the browser's built-in Web Speech API.
+* **Live Website Preview:** Displays an interactive `iframe` of the analyzed website.
+* **Analysis History:** Stores a record of all previously analyzed URLs, including the generated insights.
+
+  * **Revisit Content:** Click from the history page to view the detailed analysis of any past entry on the main page.
+* **Python-Powered Backend:** Handles all web scraping, AI interactions, and database operations.
+* **Dynamic Content Scraping:** Uses **Playwright** to handle JavaScript-rendered websites.
 
 ---
 
@@ -27,32 +30,30 @@
 
 ### Backend (Python)
 
-* **Flask:** A lightweight and flexible web framework for serving the API and web content.
-* **Requests:** For making initial HTTP requests to fetch webpage content.
-* **BeautifulSoup4:** For parsing HTML content and extracting static data.
-* **Playwright:** For browser automation to scrape JavaScript-rendered dynamic content, ensuring comprehensive data gathering.
-* **Gemini API:** Python SDK for interacting directly with Google's Gemini models for advanced NLP tasks.
-* **Pymongo:** Python driver for MongoDB, used for database interactions.
-* **MongoDB (Atlas/Local):** NoSQL database for storing analysis history and retrieved website data.
-* **Gunicorn:** WSGI HTTP server for running the Flask application in production.
+* **Flask**
+* **Requests**
+* **BeautifulSoup4**
+* **Playwright**
+* **Gemini API** (Google)
+* **Pymongo**
+* **MongoDB (Atlas/Local)**
+* **Gunicorn**
 
 ### Frontend (HTML, CSS, JavaScript)
 
-* **HTML5:** Structure of the web pages.
-* **CSS3:** For styling, including glassmorphic effects and a modern look.
-* **JavaScript (ES6+):** For dynamic UI updates, API calls to the backend, and integrating the Web Speech API for text-to-speech.
+* **HTML5**
+* **CSS3 (Glassmorphism style)**
+* **JavaScript (ES6+)** with Web Speech API
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these instructions to set up and run Enum on your local machine.
-
 ### Prerequisites
 
 * Python 3.8+
-* `pip` (Python package installer)
-* MongoDB instance (local or a cloud service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - a free tier is available)
+* `pip`
+* MongoDB instance (local or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
 
 ### 1. Clone the Repository
 
@@ -63,98 +64,89 @@ cd enum
 
 ### 2. Install Dependencies
 
-Make sure Playwright browser binaries are also installed:
-
 ```bash
 pip install -r requirements.txt
 playwright install --with-deps chromium
 ```
 
-**Important:** Add `.env` to your `.gitignore` file to prevent committing sensitive credentials.
+> **Note:** Add `.env` to `.gitignore` to prevent committing sensitive credentials.
 
-### 3. Running the Application
-
-Start the Flask development server:
+### 3. Run the Application
 
 ```bash
 python app.py
 ```
 
-The application will typically be available at `http://127.0.0.1:5000/`. Open this URL in your web browser.
+Navigate to: `http://127.0.0.1:5000/`
 
 ---
 
 ## 📖 Usage
 
-1.  **Navigate to the Homepage:** Open the application in your browser.
-2.  **Enter a URL:** In the "Get Started" section, paste the full URL (including `http://` or `https://`) of the website you want to analyze into the input field.
-3.  **Analyze:** Click the "Analyze Website" button.
-4.  **Receive Insights:** Wait a few moments. The application will scrape the website, send the content to the Gemini API for analysis, and then display:
-    * The identified **Company Name**.
-    * A **Core Business Description**.
-    * The **Industry Classification**.
+1. Open the app in your browser.
+2. Enter a full URL (with `http://` or `https://`) into the input box.
+3. Click "Analyze Website."
+4. View:
 
-    These insights will also be automatically read aloud.
-5.  **View Website Preview:** An iframe below the analysis will load the live website for your reference.
-6.  **View History:** Click the "View History" button (on the main page) or navigate to the `/history` page to see a list of all previously analyzed websites.
-7.  **Revisit Content:** Click on any entry in the history list to automatically populate the main analysis page with its details and preview.
+   * **Company Name**
+   * **Business Description**
+   * **Industry**
+   * Live website preview (`iframe`)
+   * Listen to the insights via Web Speech API.
+5. Use **History** to revisit past analyses.
 
 ---
 
-## 🏗️ Project Structure
+## 🏐 Project Structure
 
 ```
 enum/
 ├── app.py                  # Main Flask application
 ├── requirements.txt        # Python dependencies
-├── .env                    # Environment variables (ignored by Git)
+├── .env                    # Environment variables (ignored)
 ├── static/
 │   ├── css/
-│   │   └── style.css       # Main CSS styles
+│   │   └── style.css       # Glassmorphic styles
 │   ├── js/
-│   │   └── script.js       # Frontend JavaScript logic
-│   └── img/                # For images like favicons (e.g., favicon.png)
+│   │   └── script.js       # Web Speech API + frontend logic
+│   └── img/                # Icons/images
 ├── templates/
 │   ├── index.html          # Main analysis page
-│   └── history.html        # Page to display analysis history
+│   └── history.html        # History view page
 ├── utils/
 │   ├── __init__.py
-│   ├── scraper.py          # Web scraping logic (Requests, BeautifulSoup, Playwright)
-│   └── gemini_analyzer.py  # Logic for interacting with Gemini API
-└── README.md               
+│   ├── scraper.py          # Scraping logic (Requests + Playwright)
+│   └── gemini_analyzer.py  # Gemini API interaction logic
+└── README.md
 ```
 
 ---
 
 ## 🐳 Deployment
 
-This application can be deployed to various platforms. Here are general guidelines:
-
-### Using Procfile (e.g., Heroku, Render)
-
-A `Procfile` is provided:
+### Render/Heroku (Procfile):
 
 ```
 web: playwright install --with-deps chromium && gunicorn app:app --preload --timeout 120 -w 2
 ```
 
-Ensure your platform's Python buildpack correctly handles the `playwright install` command and its dependencies. Gunicorn is used as the production WSGI server.
-
-**Environment Variables on the Platform:**
+* Ensure the platform supports Playwright and necessary dependencies.
+* Add required environment variables in the platform's settings.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Please feel free to:
+Feel free to:
 
-* Open an issue to discuss a change or report a bug.
-* Fork the repository and submit a pull request.
+* Fork the repo
+* Submit pull requests
+* Open issues for bugs or feature requests
 
 ---
 
-## 📜 License
+## 📌 License
 
-This project is open-source and available under the [MIT License](LICENSE.md).
+MIT License - see `LICENSE.md` for details.
 
 ---
