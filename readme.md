@@ -1,4 +1,4 @@
-`Screenshot 2025-05-25 090418.png.png`  
+`Screenshot 2025-05-25 090418.png`  
 # Enum - Intelligent Website Analysis Tool
 
 ---
